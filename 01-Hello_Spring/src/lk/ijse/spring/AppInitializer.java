@@ -29,6 +29,10 @@ public class AppInitializer {
         ItemController itemBean = (ItemController) ctx.getBean("item");
         System.out.println(itemBean);
 
+        BasicDataSource bean1 = (BasicDataSource) ctx.getBean("basic");
+        bean1.accessPool();
+        System.out.println(bean1);
+
         ctx.close();
     }
 }
