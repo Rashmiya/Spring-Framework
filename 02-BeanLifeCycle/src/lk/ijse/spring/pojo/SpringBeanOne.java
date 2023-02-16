@@ -1,16 +1,13 @@
 package lk.ijse.spring.pojo;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.BeanFactoryAware;
-import org.springframework.beans.factory.BeanNameAware;
-import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean {
+public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean , DisposableBean {
     public SpringBeanOne(){
         System.out.println("Spring Bean One instantiated!");
     }
@@ -33,5 +30,10 @@ public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, Applicati
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("Spring Bean One : initializing Bean : Bean Ready");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Spring Bean One : Dead of the bean");
     }
 }
