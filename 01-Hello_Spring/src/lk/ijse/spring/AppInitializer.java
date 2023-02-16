@@ -3,6 +3,7 @@ package lk.ijse.spring;
 import lk.ijse.spring.config.AppConfig;
 import lk.ijse.spring.pojo.BasicDataSource;
 import lk.ijse.spring.pojo.DBConnection;
+import lk.ijse.spring.pojo.ItemController;
 import lk.ijse.spring.pojo.SpringBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -24,6 +25,9 @@ public class AppInitializer {
         /*========Access the class, which we didn't create================*/
         BasicDataSource bean2 = ctx.getBean(BasicDataSource.class);
         bean2.accessPool();
+
+        ItemController itemBean = (ItemController) ctx.getBean("item");
+        System.out.println(itemBean);
 
         ctx.close();
     }
