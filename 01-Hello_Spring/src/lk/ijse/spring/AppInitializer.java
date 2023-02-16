@@ -1,6 +1,8 @@
 package lk.ijse.spring;
 
 import lk.ijse.spring.config.AppConfig;
+import lk.ijse.spring.pojo.BasicDataSource;
+import lk.ijse.spring.pojo.DBConnection;
 import lk.ijse.spring.pojo.SpringBean;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,13 +14,16 @@ public class AppInitializer {
         ctx.refresh();
 
         SpringBean bean = ctx.getBean(SpringBean.class);
-        SpringBean bean1 = ctx.getBean(SpringBean.class);
-      /*  bean.test();  *//*return a method in a Bean class*//*
-        System.out.println(bean);  *//*object eke address eka return wenwa*/
+        bean.test();  /*return a method in a Bean class*/
+        System.out.println(bean);  /*object eke address eka return wenwa*/
 
-        /*check same reference or not*/
-        System.out.println(bean);
-        System.out.println(bean1);
+        DBConnection con = ctx.getBean(DBConnection.class);
+        con.getConnection();
+        System.out.println(con);
+
+        /*========Access the class, which we didn't create================*/
+        BasicDataSource bean2 = ctx.getBean(BasicDataSource.class);
+        bean2.accessPool();
 
         ctx.close();
     }
