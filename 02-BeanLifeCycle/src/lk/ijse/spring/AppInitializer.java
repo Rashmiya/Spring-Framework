@@ -15,5 +15,16 @@ public class AppInitializer {
         System.out.println(bean);
 
         ctx.close();
+
+        /*Run something just before JVM is going to shut-down (Hooking Process)*/
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ctx.close();
+            }
+        }));
+
+        SpringBeanOne bean2 = ctx.getBean(SpringBeanOne.class);
+        System.out.println(bean2);
     }
 }
