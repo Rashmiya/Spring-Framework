@@ -8,4 +8,8 @@ public class SpringBean {
     public SpringBean(){
         System.out.println("SpringBean : Instantiated!");
     }
+
+    public void test(){
+        System.out.println("Spring Bean test method invoked");
+    }
 }
