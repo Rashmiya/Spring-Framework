@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/01-Hello_Spring/01-Hello_Spring.iml" filepath="$PROJECT_DIR$/01-Hello_Spring/01-Hello_Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/02-BeanLifeCycle/02-BeanLifeCycle.iml" filepath="$PROJECT_DIR$/02-BeanLifeCycle/02-BeanLifeCycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-Bean_Scoope/Spring-Framework/03-Bean_Scoope/03-Bean_Scoope.iml" filepath="$PROJECT_DIR$/03-Bean_Scoope/Spring-Framework/03-Bean_Scoope/03-Bean_Scoope.iml" />
     </modules>
   </component>
 </project>
