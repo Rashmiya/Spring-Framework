@@ -2,9 +2,9 @@
   <artifact type="war" name="webmvc">
     <output-path>$PROJECT_DIR$/out/artifacts/webmvc</output-path>
     <root id="archive" name="webmvc.war">
-      <element id="javaee-facet-resources" facet="09-SpringMVC/web/Web" />
       <element id="library" level="project" name="spring-aop-5.3.9-javadoc" />
       <element id="module-output" name="09-SpringMVC" />
+      <element id="javaee-facet-resources" facet="09-SpringMVC/web/Web" />
     </root>
   </artifact>
 </component>
