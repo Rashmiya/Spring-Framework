@@ -16,4 +16,6 @@ public class CustomerController {
         System.out.println(dto.toString());
         return "Customer Added";
     }
+
+    public String updateCustomer(){}
 }
