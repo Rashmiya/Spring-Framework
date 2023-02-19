@@ -1,10 +1,10 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.customerDTO;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lk.ijse.spring.util.ResponseUtil;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/customer")
@@ -12,10 +12,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerController {
 
     @PostMapping
-    public String saveCustomer(customerDTO dto){
+    public ResponseUtil saveCustomer(@ModelAttribute customerDTO dto){
         System.out.println(dto.toString());
-        return "Customer Added";
+        return new ResponseUtil(200,dto.toString()+"Successfully Added",null);
     }
 
-    public String updateCustomer(){}
+    @PutMapping
+    public ResponseUtil updateCustomer(@RequestBody customerDTO dto){
+        System.out.println(dto.toString());
+        return new ResponseUtil(200,dto.toString()+"Customer Updated",null);
+    }
+
+    @DeleteMapping(params = "id")
+    public ResponseUtil deleteCustomer(String id){
+        System.out.println(id);
+        return new ResponseUtil(200,id+"Customer Deleted",null);
+    }
+
+    @GetMapping
+    public ResponseUtil getAllCustomer(){
+        ArrayList<customerDTO> allCustomers = new ArrayList<>();
+        allCustomers.add(new customerDTO("C001","Rashmiya","Padukka",45000));
+        allCustomers.add(new customerDTO("C002","Nipun","Colombo",34500));
+        allCustomers.add(new customerDTO("C003","kamal","Nugegoda",54000));
+        allCustomers.add(new customerDTO("C004","Sunil","Meepe",20000));
+        allCustomers.add(new customerDTO("C005","Jayanthi","Waththala",30000));
+        return new ResponseUtil(200,"Success",allCustomers);
+    }
 }

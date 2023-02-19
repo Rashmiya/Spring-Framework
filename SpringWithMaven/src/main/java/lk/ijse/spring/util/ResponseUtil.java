@@ -1,24 +1,24 @@
 package lk.ijse.spring.util;
 
 public class ResponseUtil {
-    private String code;
+    private int code;
     private String message;
-    private String status;
+    private Object data;
 
     public ResponseUtil() {
     }
 
-    public ResponseUtil(String code, String message, String status) {
+    public ResponseUtil(int code, String message, Object data) {
         this.code = code;
         this.message = message;
-        this.status = status;
+        this.data = data;
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
@@ -30,20 +30,20 @@ public class ResponseUtil {
         this.message = message;
     }
 
-    public String getStatus() {
-        return status;
+    public Object getData() {
+        return data;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setData(Object data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
         return "ResponseUtil{" +
-                "code='" + code + '\'' +
+                "code=" + code +
                 ", message='" + message + '\'' +
-                ", status='" + status + '\'' +
+                ", data=" + data +
                 '}';
     }
 }
