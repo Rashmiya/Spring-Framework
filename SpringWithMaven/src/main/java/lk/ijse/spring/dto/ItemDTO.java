@@ -2,17 +2,17 @@ package lk.ijse.spring.dto;
 
 public class ItemDTO {
     private String code;
-    private String name;
-    private int qty;
+    private String description;
+    private int qtyOnHand;
     private double unitPrice;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(String code, String name, int qty, double unitPrice) {
+    public ItemDTO(String code, String description, int qtyOnHand, double unitPrice) {
         this.code = code;
-        this.name = name;
-        this.qty = qty;
+        this.description = description;
+        this.qtyOnHand = qtyOnHand;
         this.unitPrice = unitPrice;
     }
 
@@ -24,20 +24,20 @@ public class ItemDTO {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getQty() {
-        return qty;
+    public int getQtyOnHand() {
+        return qtyOnHand;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setQtyOnHand(int qtyOnHand) {
+        this.qtyOnHand = qtyOnHand;
     }
 
     public double getUnitPrice() {
@@ -52,8 +52,8 @@ public class ItemDTO {
     public String toString() {
         return "ItemDTO{" +
                 "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", qty=" + qty +
+                ", description='" + description + '\'' +
+                ", qtyOnHand=" + qtyOnHand +
                 ", unitPrice=" + unitPrice +
                 '}';
     }
