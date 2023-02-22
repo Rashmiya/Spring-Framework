@@ -34,13 +34,13 @@ public class JPAConfig {
         // DriverManager dataSource only for testing
         // for production level , we use DBC pool / Inbuilt pool
 
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql//localhost:3306/springjpa?createDatabaseIfNotExist=true");  /*in here database name is "springjpa"*/
-        dataSource.setUsername("root");
-        dataSource.setPassword("1234");
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("com.mysql.jdbc.Driver");
+        ds.setUrl("jdbc:mysql://localhost:3306/spring_jpa?createDatabaseIfNotExist=true");  /*in here database name is "springjpa"*/
+        ds.setUsername("root");
+        ds.setPassword("1234");
 
-        return dataSource;
+        return ds;
     }
 
     @Bean
