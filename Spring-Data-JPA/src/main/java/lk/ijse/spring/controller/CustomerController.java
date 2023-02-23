@@ -1,7 +1,9 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.CustomerDTO;
+import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.util.ResponseUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,9 +13,15 @@ import java.util.ArrayList;
 @CrossOrigin  /*handle all the cross policy errors*/
 public class CustomerController {
 
+    @Autowired
+    CustomerRepo repo;
+
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
         System.out.println(dto.toString());
+
+        repo.save();
+
         return new ResponseUtil(200,dto.toString()+"Successfully Added",null);
     }
 
