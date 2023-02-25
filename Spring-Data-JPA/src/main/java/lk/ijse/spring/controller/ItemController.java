@@ -1,7 +1,7 @@
 package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.ItemDTO;
-import lk.ijse.spring.service.ItemServiceImpl;
+import lk.ijse.spring.service.impl.ItemServiceImpl;
 import lk.ijse.spring.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
