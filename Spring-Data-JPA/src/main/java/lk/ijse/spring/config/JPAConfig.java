@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement  // this is an aspect - manage all transactions automatically using TransactionManager
-@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, ItemRepo.class})  // link dao classes
+@EnableJpaRepositories(basePackageClasses = {CustomerRepo.class})  // link dao classes
 /*@EnableJpaRepositories(basePackages = "lk.ijse.spring")*/  /*repo classes one by one import krnna wena nisa package ek dunna methnata*/
 public class JPAConfig {
 

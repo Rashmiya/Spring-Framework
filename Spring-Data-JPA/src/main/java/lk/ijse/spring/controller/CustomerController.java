@@ -3,6 +3,7 @@ package lk.ijse.spring.controller;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
+import lk.ijse.spring.service.customerServiceImpl;
 import lk.ijse.spring.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,13 @@ import java.util.List;
 public class CustomerController {
 
     @Autowired
+    customerServiceImpl service;
+
+  /*  @Autowired
     CustomerRepo repo;
 
     @Autowired
-    ModelMapper mapper;
+    ModelMapper mapper;*/
 
     @PostMapping
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDTO dto){
@@ -29,9 +33,10 @@ public class CustomerController {
         /*create customer object and put dto objects into customerObject*/
        /* Customer customer = new Customer(dto.getId(), dto.getName(), dto.getAddress(), dto.getSalary());*/
 
-        Customer customerEntity = mapper.map(dto, Customer.class);  // replaced by using modelMapper
-        repo.save(customerEntity);
-        
+        /*Customer customerEntity = mapper.map(dto, Customer.class);  // replaced by using modelMapper
+        repo.save(customerEntity);*/
+
+        service.addCustomer(dto);   /*by using service layer*/
         return new ResponseUtil(200,dto.toString()+"Successfully Added",null);
     }
 
@@ -40,17 +45,19 @@ public class CustomerController {
       /*  System.out.println(dto.toString());
         Customer updateCustomer = new Customer(dto.getId(),dto.getName(), dto.getAddress(), dto.getSalary());*/
 
-        Customer updateCustomer = mapper.map(dto, Customer.class);   // replaced by using modelMapper
-        repo.save(updateCustomer);
+        /*Customer updateCustomer = mapper.map(dto, Customer.class);   // replaced by using modelMapper
+        repo.save(updateCustomer);*/
 
+        service.updateCustomer(dto);
         return new ResponseUtil(200,dto.toString()+"Customer Updated",null);
     }
 
     @DeleteMapping(params = "id")
     public ResponseUtil deleteCustomer(String id){
-//        System.out.println(id);
+        /*System.out.println(id);
+        repo.deleteById(id);*/
 
-        repo.deleteById(id);
+        service.deleteCustomer(id);
         return new ResponseUtil(200,id+"Customer Deleted",null);
     }
 
@@ -62,10 +69,11 @@ public class CustomerController {
         allCustomers.add(new CustomerDTO("C003","kamal","Nugegoda",54000));
         allCustomers.add(new CustomerDTO("C004","Sunil","Meepe",20000));
         allCustomers.add(new CustomerDTO("C005","Jayanthi","Waththala",30000));*/
-
         /*return new ResponseUtil(200,"Success",allCustomers);*/
 
-        List<Customer> all = repo.findAll();
-        return new ResponseUtil(200,"Success",all);
+     /*   List<Customer> all = repo.findAll();*/
+
+        ArrayList<CustomerDTO> allCustomers = service.getAllCustomers();
+        return new ResponseUtil(200,"Success",allCustomers);
     }
 }
