@@ -21,7 +21,7 @@ public class ItemController {
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto){
         System.out.println(dto.toString());
 
-       Item item = new Item(dto.getCode(), dto.getName(),dto.getQtyOnHand(),dto.getUnitPrice());
+       Item item = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
         repo.save(item);
 
         return new ResponseUtil(200,dto.toString()+"Successfully Added Item",null);
@@ -31,7 +31,7 @@ public class ItemController {
     public ResponseUtil updateItem(@RequestBody ItemDTO dto){
         System.out.println(dto.toString());
 
-        Item updateItem = new Item(dto.getCode(), dto.getName(),dto.getQtyOnHand(),dto.getUnitPrice());
+        Item updateItem = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
         repo.save(updateItem);
 
         return new ResponseUtil(200,dto.toString()+"Item Updated",null);

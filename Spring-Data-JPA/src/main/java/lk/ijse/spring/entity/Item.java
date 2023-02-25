@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Item {
     @Id  /*primary key - code*/
     private String code;
-    private String name;
+    private String description;
     private int qtyOnHand;
     private double unitPrice;
 }
