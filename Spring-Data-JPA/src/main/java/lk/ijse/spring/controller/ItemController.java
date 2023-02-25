@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.ItemDTO;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.ItemRepo;
 import lk.ijse.spring.util.ResponseUtil;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,21 +18,26 @@ public class ItemController {
     @Autowired
     ItemRepo repo;
 
+    @Autowired
+    ModelMapper mapper;
+
     @PostMapping
     public ResponseUtil saveItem(@ModelAttribute ItemDTO dto){
-        System.out.println(dto.toString());
+       /* System.out.println(dto.toString());
+        Item item = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());*/
 
-       Item item = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
-        repo.save(item);
+        Item itemEntity = mapper.map(dto, Item.class);   //replaced by using modelMapper
+        repo.save(itemEntity);
 
         return new ResponseUtil(200,dto.toString()+"Successfully Added Item",null);
     }
 
     @PutMapping
     public ResponseUtil updateItem(@RequestBody ItemDTO dto){
-        System.out.println(dto.toString());
+        /*System.out.println(dto.toString());
+        Item updateItem = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());*/
 
-        Item updateItem = new Item(dto.getCode(), dto.getDescription(),dto.getQtyOnHand(),dto.getUnitPrice());
+        Item updateItem = mapper.map(dto, Item.class);  //replaced by using modelMapper
         repo.save(updateItem);
 
         return new ResponseUtil(200,dto.toString()+"Item Updated",null);
@@ -39,10 +45,9 @@ public class ItemController {
 
     @DeleteMapping(params = "code")
     public ResponseUtil deleteItem(String code){
-        System.out.println(code);
+        /*System.out.println(code);*/
 
         repo.deleteById(code);
-
         return new ResponseUtil(200,code+"Item Deleted",null);
     }
 
