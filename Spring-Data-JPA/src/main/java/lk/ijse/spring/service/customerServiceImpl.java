@@ -14,28 +14,32 @@ import java.util.List;
 
 @Service
 @Transactional
-public class customerServiceImpl {
+public class customerServiceImpl  implements  CustomerService{
     @Autowired
     CustomerRepo repo;
 
     @Autowired
     ModelMapper mapper;
 
-    public void addCustomer(CustomerDTO dto){
+    @Override
+    public void addCustomer(CustomerDTO dto) {
         Customer customerEntity = mapper.map(dto, Customer.class);  // replaced by using modelMapper
         repo.save(customerEntity);
     }
 
-    public void deleteCustomer(String id){
+    @Override
+    public void deleteCustomer(String id) {
         repo.deleteById(id);
     }
 
-    public void updateCustomer(CustomerDTO dto){
+    @Override
+    public void updateCustomer(CustomerDTO dto) {
         Customer updateCustomer = mapper.map(dto, Customer.class);   // replaced by using modelMapper
         repo.save(updateCustomer);
     }
 
-    public ArrayList<CustomerDTO> getAllCustomers(){
+    @Override
+    public ArrayList<CustomerDTO> getAllCustomers() {
         List<Customer> all = repo.findAll();
         return mapper.map(all,new TypeToken<ArrayList<CustomerDTO>>(){}.getType());
     }
