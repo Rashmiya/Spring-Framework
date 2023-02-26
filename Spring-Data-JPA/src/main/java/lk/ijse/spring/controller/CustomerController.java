@@ -33,7 +33,7 @@ public class CustomerController {
         repo.save(customerEntity);*/
 
         service.addCustomer(dto);   /*by using service layer*/
-        return new ResponseUtil(200,dto.toString()+"Successfully Added",null);
+        return new ResponseUtil(200,dto.toString()+" Successfully Added",null);
     }
 
     @PutMapping
@@ -45,7 +45,7 @@ public class CustomerController {
         repo.save(updateCustomer);*/
 
         service.updateCustomer(dto);
-        return new ResponseUtil(200,dto.toString()+"Customer Updated",null);
+        return new ResponseUtil(200,dto.toString()+" Customer Updated",null);
     }
 
     @DeleteMapping(params = "id")
@@ -54,7 +54,7 @@ public class CustomerController {
         repo.deleteById(id);*/
 
         service.deleteCustomer(id);
-        return new ResponseUtil(200,id+"Customer Deleted",null);
+        return new ResponseUtil(200,id+" Customer Deleted",null);
     }
 
     @GetMapping

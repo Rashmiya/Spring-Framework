@@ -33,7 +33,12 @@ public class customerServiceImpl  implements CustomerService {
 
     @Override
     public void deleteCustomer(String id) {
-        repo.deleteById(id);
+        if(repo.existsById(id)){
+            repo.deleteById(id);  /*if customer exist delete that customer*/
+        }else{
+            throw new RuntimeException("Customer "+id +" not available to delete");
+        }
+
     }
 
     @Override
