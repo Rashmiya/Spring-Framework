@@ -25,6 +25,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void addItem(ItemDTO dto) {
+        if(repo.existsById(dto.getCode())){  /*Item ekak already innawanm*/
+            throw new RuntimeException("Customer "+dto.getCode()+" already exist...");
+        }
         Item itemEntity = mapper.map(dto, Item.class);   //replaced by using modelMapper
         repo.save(itemEntity);
     }
@@ -37,7 +40,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void deleteItem(String code) {
-        repo.deleteById(code);
+        if(repo.existsById(code)){
+            repo.deleteById(code);  /*if item exist delete that item*/
+        }else {
+            throw new RuntimeException("Item "+code +" not available to delete");
+        }
     }
 
     @Override
