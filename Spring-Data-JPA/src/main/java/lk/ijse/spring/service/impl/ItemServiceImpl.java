@@ -34,6 +34,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void updateItem(ItemDTO dto) {
+        if(!repo.existsById(dto.getCode())){
+            throw new RuntimeException("Item "+dto.getCode()+" Not Available to update");
+        }
         Item updateItem = mapper.map(dto, Item.class);  //replaced by using modelMapper
         repo.save(updateItem);
     }

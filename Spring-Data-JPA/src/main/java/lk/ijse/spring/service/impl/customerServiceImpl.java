@@ -43,6 +43,9 @@ public class customerServiceImpl  implements CustomerService {
 
     @Override
     public void updateCustomer(CustomerDTO dto) {
+        if(!repo.existsById(dto.getId())){
+            throw new RuntimeException("Customer "+dto.getId()+" Not Available to update");
+        }
         Customer updateCustomer = mapper.map(dto, Customer.class);   // replaced by using modelMapper
         repo.save(updateCustomer);
     }
