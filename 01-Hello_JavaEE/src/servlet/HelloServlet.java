@@ -7,10 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/customer")
+@WebServlet(urlPatterns = "/customer")   /*ena request eka catch karagnnawa*/
+//ethkota form eka submit krnkota e adala data tika ewith wetenne methnata.
+//servlets kiyana aspect eka thulin thama , WebServlet annotation eka enne.
 public class HelloServlet extends HttpServlet {
+    // customer kiyna location ekata ena data tika catch karagenimta awashya krna methods tika thiyenne me HttpServlet eka ethule.
+    //e hinda thama eka inherit krgnne.
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("<h2>Customer Method Invoked</h2>");
+        System.out.println("You successfully saved the customer");
     }
+
 }
