@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/customer")   /*ena request eka catch karagnnawa*/
 //ethkota form eka submit krnkota e adala data tika ewith wetenne methnata.
@@ -21,6 +22,21 @@ public class HelloServlet extends HttpServlet {
         String address = req.getParameter("address");
         String salary = req.getParameter("salary");
         System.out.println(id+"-"+name+"-"+address+"-"+salary);
+
+        PrintWriter writer = resp.getWriter();
+       /* writer.write("<h1>This is your response</h1>"); */
+
+        writer.write("<ul>");
+        writer.write("<li>"+id+"</li>");
+        writer.write("<li>"+name+"</li>");
+        writer.write("<li>"+address+"</li>");
+        writer.write("<li>"+salary+"</li>");
+        writer.write("</ul>");
+
     }
+
+    /*servlet ekata monawahri enawanm e ena hemdema,"HttpServletRequest" object eka through catch krgnna puluwn.*/
+    /*default request method eka = GET*/
+    /**/
 
 }
