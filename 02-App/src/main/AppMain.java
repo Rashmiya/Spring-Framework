@@ -20,7 +20,7 @@ public class AppMain extends HttpServlet {
 
         /*deliver a response*/
         PrintWriter writer = resp.getWriter();
-        writer.write("<table>");
+        writer.write("<table border='1' width='100%'>");
 
         writer.write("<thead>");
         writer.write("<tr><th>Item Name</th><th>Description</th><th>Price</th><th>Qty</th></tr>");
