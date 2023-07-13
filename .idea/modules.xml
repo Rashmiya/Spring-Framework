@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/01-Hello_Spring/01-Hello_Spring.iml" filepath="$PROJECT_DIR$/01-Hello_Spring/01-Hello_Spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/02-App/02-App.iml" filepath="$PROJECT_DIR$/02-App/02-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/02-BeanLifeCycle/02-BeanLifeCycle.iml" filepath="$PROJECT_DIR$/02-BeanLifeCycle/02-BeanLifeCycle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03-App_Three/03-App_Three.iml" filepath="$PROJECT_DIR$/03-App_Three/03-App_Three.iml" />
       <module fileurl="file://$PROJECT_DIR$/03-Bean_Scoope/Spring-Framework/03-Bean_Scoope/03-Bean_Scoope.iml" filepath="$PROJECT_DIR$/03-Bean_Scoope/Spring-Framework/03-Bean_Scoope/03-Bean_Scoope.iml" />
       <module fileurl="file://$PROJECT_DIR$/09-SpringMVC/09-SpringMVC.iml" filepath="$PROJECT_DIR$/09-SpringMVC/09-SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/POS_FrontEnd.iml" filepath="$PROJECT_DIR$/POS_FrontEnd.iml" />
